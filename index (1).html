@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>previoustimes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      min-height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      background-size: 1400% 1400%;
+      animation: rainbowBackground 15s infinite linear;
+    }
+
+    .title {
+      font-size: 4em;
+      font-weight: 700;
+      color: #222;
+      margin: 60px 0 30px;
+      text-align: center;
+      letter-spacing: 2px;
+      display: inline-block;
+      text-transform: lowercase;
+    }
+
+    .title span {
+      display: inline-block;
+      animation: wave 2s infinite ease-in-out, fade 2s infinite ease-in-out;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(8px, -12px); }
+      50% { transform: translate(0, -8px); }
+      75% { transform: translate(-8px, -12px); }
+    }
+
+    @keyframes fade {
+      0%, 100% { color: #222; }
+      50% { color: #888; }
+    }
+
+    @keyframes rainbowBackground {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 70%;
+      max-width: 1200px;
+    }
+
+    .game-card {
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 20px;
+      text-transform: lowercase;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .game-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .game-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .game-info h2 {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .game-info p {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    /* Play Button */
+    .play-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .play-button:hover {
+      background-color: #388E3C;
+    }
+
+    .fade-out {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 10;
+      animation: fadeOutOverlay 2s forwards;
+    }
+
+    .fade-everything {
+      opacity: 1;
+      animation: fadeOutContent 2s forwards;
+    }
+
+    @keyframes fadeOutOverlay {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeOutContent {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Footer spinning text */
+    .footer {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2em;
+      color: #333;
+      animation: spinText 3s linear infinite;
+      text-transform: lowercase;
+    }
+
+    @keyframes spinText {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">
+    <span style="--i:1">p</span><span style="--i:2">r</span><span style="--i:3">e</span><span style="--i:4">v</span><span style="--i:5">i</span><span style="--i:6">o</span><span style="--i:7">u</span><span style="--i:8">s</span>
+    <span style="--i:9">t</span><span style="--i:10">i</span><span style="--i:11">m</span><span style="--i:12">e</span><span style="--i:13">s</span>
+  </div>
+
+  <div class="grid-container">
+    <div class="game-card">
+      <img src="https://via.placeholder.com/400x200" alt="Game Image 1">
+      <div class="game-info">
+        <h2>game name 1</h2>
+        <p>a short description of game 1 goes here.</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://example.com/game1')">play</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="https://via.placeholder.com/400x200" alt="Game Image 2">
+      <div class="game-info">
+        <h2>game name 2</h2>
+        <p>a short description of game 2 goes here.</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://example.com/game2')">play</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    tiago made this site :)
+  </div>
+
+  <script>
+    function playGame(event, url) {
+      event.preventDefault();
+
+      const overlay = document.createElement('div');
+      overlay.className = 'fade-out';
+      document.body.appendChild(overlay);
+
+      document.querySelectorAll('.title, .grid-container, .footer').forEach(element => {
+        element.classList.add('fade-everything');
+      });
+
+      overlay.addEventListener('animationend', () => {
+        window.location.href = url;
+      });
+    }
+  </script>
+</body>
+</html>
