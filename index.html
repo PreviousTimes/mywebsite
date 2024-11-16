@@ -8,14 +8,9 @@
     body {
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       font-family: 'Arial', sans-serif;
       color: #333;
-      min-height: 100vh;
-      overflow: hidden;
+      height: auto;
       background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
       background-size: 1400% 1400%;
       animation: rainbowBackground 15s infinite linear;
@@ -61,6 +56,8 @@
       gap: 20px;
       width: 70%;
       max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 50px;
     }
 
     .game-card {
@@ -99,7 +96,6 @@
       color: #666;
     }
 
-    /* Play Button */
     .play-button {
       display: inline-block;
       padding: 10px 20px;
@@ -142,7 +138,6 @@
       100% { opacity: 0; }
     }
 
-    /* Footer spinning text */
     .footer {
       position: fixed;
       bottom: 20px;
@@ -168,43 +163,42 @@
   </div>
 
   <div class="grid-container">
-  <div class="game-card">
-    <img src="https://previoustimes.github.io/mywebsite/images/jsra.png" alt="Game Image 1">
-    <div class="game-info">
-      <h2>jet set radio arcade</h2>
-      <p>a grinding platform game with multiplayer and trick aspects! fun with friends!</p>
-      <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/jsrafixedhtml/')">play</a>
+    <div class="game-card">
+      <img src="https://previoustimes.github.io/mywebsite/images/jsra.png" alt="Game Image 1">
+      <div class="game-info">
+        <h2>jet set radio arcade</h2>
+        <p>a grinding platform game with multiplayer and trick aspects! fun with friends!</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/jsrafixedhtml/')">play</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="https://previoustimes.github.io/mywebsite/images/sworld.png" alt="Game Image 2">
+      <div class="game-info">
+        <h2>slime world</h2>
+        <p>simple platformer game test.</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/slimeworld')">play</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="https://previoustimes.github.io/mywebsite/images/sworld.png" alt="Game Image 3">
+      <div class="game-info">
+        <h2>factory 2056</h2>
+        <p>topdown shooter game with multiplayer.</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/slimeworld')">play</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="https://previoustimes.github.io/mywebsite/images/jsrav2.png" alt="Game Image 4">
+      <div class="game-info">
+        <h2>jet set radio arcade 2 demo</h2>
+        <p>demo for my newest project!</p>
+        <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/jsrav2demo')">play</a>
+      </div>
     </div>
   </div>
-
-  <div class="game-card">
-    <img src="https://previoustimes.github.io/mywebsite/images/sworld.png" alt="Game Image 2">
-    <div class="game-info">
-      <h2>slime world</h2>
-      <p>simple platformer game test.</p>
-      <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/slimeworld')">play</a>
-    </div>
-  </div>
-
-  <div class="game-card">
-    <img src="https://previoustimes.github.io/mywebsite/images/sworld.png" alt="Game Image 3">
-    <div class="game-info">
-      <h2>factory 2056</h2>
-      <p>topdown shooter game with multiplayer.</p>
-      <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/slimeworld')">play</a>
-    </div>
-  </div>
-
-  <div class="game-card">
-    <img src="https://previoustimes.github.io/mywebsite/images/jsrav2.png" alt="Game Image 4">
-    <div class="game-info">
-      <h2>jet set radio arcade 2 demo</h2>
-      <p>demo for my newest project!</p>
-      <a href="#" class="play-button" onclick="playGame(event, 'https://previoustimes.github.io/jsrav2demo')">play</a>
-    </div>
-  </div>
-</div>
-
 
   <div class="footer">
     tiago made this site :)
